@@ -3,7 +3,11 @@
 import { program } from 'commander';
 import commands from '../src/commands/index.mjs';
 
-program.version('1.0.0').description('My Node CLI');
+import taskStore from '../src/libs/task-store.mjs';
+
+taskStore.initTasks();
+
+program.version('1.0.0').description('Task CLI');
 
 commands.addCmd(program);
 commands.update(program);

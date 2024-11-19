@@ -1,23 +1,28 @@
+import taskStore from '../libs/task-store.mjs';
+
 export default (program) => {
   program
     .command('list')
     .description('View the list of tasks')
-    .argument('[filterBy]', 'List all done tasks filtered')
+    .argument('[filterBy]', 'List all tasks filtered')
     .action((filterBy) => {
-      console.log({ filterBy });
-
+      let tasks;
       switch (filterBy) {
         case 'done':
           console.log('Done tasks');
+          tasks = taskStore.getTasksByStatus('done');
           break;
         case 'todo':
           console.log('To do tasks');
+          tasks = taskStore.getTasksByStatus('todo');
           break;
         case 'in-progress':
           console.log('In progress tasks');
+          tasks = taskStore.getTasksByStatus('in-progress');
           break;
         default:
-          console.log('All tasks');
+          tasks = taskStore.getTasks();
       }
+      console.log(tasks);
     });
 };

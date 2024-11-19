@@ -1,3 +1,5 @@
+import taskStore from "../libs/task-store.mjs";
+
 export default (program) => {
   program
     .command('update')
@@ -6,5 +8,6 @@ export default (program) => {
     .argument('<description>', 'Task description')
     .action((id, description) => {
       console.log(`Updating task: ${id} with description: ${description}`);
+      taskStore.updateTask(id, description);
     });
 };
