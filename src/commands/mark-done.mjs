@@ -1,4 +1,5 @@
 import taskStore from "../libs/task-store.mjs";
+import { printTasks } from "../utils/index.js";
 
 export default (program) => {
   program
@@ -9,5 +10,7 @@ export default (program) => {
       console.log(`Task marked as done: ${id}`);
 
       taskStore.updateTaskStatus(id, 'done');
+      printTasks(taskStore.getTasks());
+
     });
 };

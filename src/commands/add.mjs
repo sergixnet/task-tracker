@@ -1,5 +1,7 @@
 import taskFactory from "../libs/task-factory.mjs";
 import taskStore from "../libs/task-store.mjs";
+import { printTasks } from '../utils/index.js';
+
 
 export default (program) => {
   program
@@ -11,6 +13,6 @@ export default (program) => {
 
       const task = taskFactory(description);
       taskStore.addTask(task);
-      console.log(taskStore.getTasks());
+      printTasks(taskStore.getTasks());
     });
 };

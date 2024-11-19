@@ -1,4 +1,5 @@
 import taskStore from "../libs/task-store.mjs";
+import { printTasks } from "../utils/index.js";
 
 export default (program) => {
   program
@@ -8,5 +9,7 @@ export default (program) => {
     .action((id) => {
       console.log(`Deleting task: ${id}`);
       taskStore.deleteTask(id);
+
+      printTasks(taskStore.getTasks());
     });
 };

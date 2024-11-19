@@ -1,4 +1,5 @@
 import taskStore from '../libs/task-store.mjs';
+import { printTasks } from '../utils/index.js';
 
 export default (program) => {
   program
@@ -23,6 +24,6 @@ export default (program) => {
         default:
           tasks = taskStore.getTasks();
       }
-      console.log(tasks);
+      printTasks(tasks);
     });
 };

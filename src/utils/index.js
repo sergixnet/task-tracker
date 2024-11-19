@@ -24,6 +24,21 @@ function createTaskId() {
     return id;
 }
 
+
+function printTasks(tasks) {
+    console.log('Tasks:');
+
+    if (tasks.length === 0) {
+        console.log('No tasks found');
+        return;
+    }
+    
+    tasks.forEach((task) => {
+        console.log(`- ${task.id}: ${task.description} (${task.status})`);
+    });
+}
+
 export {
     createTaskId,
+    printTasks
 }

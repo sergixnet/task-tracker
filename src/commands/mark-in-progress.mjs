@@ -1,4 +1,6 @@
 import taskStore from "../libs/task-store.mjs";
+import { printTasks } from '../utils/index.js';
+
 
 export default (program) => {
   program
@@ -9,5 +11,6 @@ export default (program) => {
       console.log(`Task marked as in progress: ${id}`);
 
       taskStore.updateTaskStatus(id, 'in-progress');
+      printTasks(taskStore.getTasks());
     });
 };

@@ -1,4 +1,6 @@
 import taskStore from "../libs/task-store.mjs";
+import { printTasks } from '../utils/index.js';
+
 
 export default (program) => {
   program
@@ -9,5 +11,6 @@ export default (program) => {
     .action((id, description) => {
       console.log(`Updating task: ${id} with description: ${description}`);
       taskStore.updateTask(id, description);
+      printTasks(taskStore.getTasks());
     });
 };
